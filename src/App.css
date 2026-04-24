@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'W95FA';
+  src: url('https://github.com/misterunknown/MS-DOS-EDIT-DOS-EDIT-JS/raw/master/fonts/W95FA.woff') format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'W95FA';
+  src: url('https://github.com/misterunknown/MS-DOS-EDIT-DOS-EDIT-JS/raw/master/fonts/W95FABLD.woff') format('woff');
+  font-weight: bold;
+}
+
+* {
+  font-family: 'W95FA', ms sans-serif, Arial, sans-serif;
+}
+
+.win95-shell {
+  min-height: 100svh;
+}
+
+.win95-desktop {
+  min-height: 100svh;
+  padding: 12px 12px 54px;
+  background: #008080;
+  overflow: hidden;
+}
+
+.win95-outset {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
+.win95-inset {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.win95-btn {
+  min-height: 28px;
+  border: none;
+  background: #c0c0c0;
+  color: #000;
+  padding: 0 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.desktop-main {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  position: relative;
+}
+
+.desktop-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.desktop-icon {
+  width: 90px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.desktop-icon:focus-visible {
+  outline: 1px dotted #fff;
+  outline-offset: 1px;
+}
+
+.desktop-icon__glyph {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #000;
+  text-shadow: none;
+  background: #c0c0c0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.win95-window {
+  width: min(860px, 100%);
+  background: #c0c0c0;
+  position: absolute;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.win95-window__titlebar {
+  min-height: 28px;
+  background: linear-gradient(90deg, #000080 0%, #0a5bc4 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 2px 8px;
+  cursor: move;
+  user-select: none;
+}
+
+.win95-window__titlebar p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.win95-window__controls {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.win95-btn--title {
+  min-width: 22px;
+  min-height: 20px;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.win95-window__content {
+  background: #c0c0c0;
+  padding: 14px;
+}
+
+.win95-page h1,
+.win95-page h2,
+.win95-page p {
+  margin: 0;
+}
+
+.win95-page h1 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.win95-page p {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.win95-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.win95-grid article {
+  background: #c0c0c0;
+  padding: 8px;
+}
+
+.win95-grid h2 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.win95-page--photos .win95-photos-stage {
+  margin-top: 10px;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  background: #e7e7e7;
+  overflow: hidden;
+}
+
+.custom-bounceCards {
+  transform: scale(0.94);
+}
+
+.contact-list {
+  margin: 12px 0 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  color: #000;
+  text-decoration: none;
+  background: #c0c0c0;
+}
+
+.start-menu {
+  position: fixed;
+  left: 2px;
+  bottom: 34px;
+  z-index: 40;
+  width: min(218px, calc(100% - 8px));
+  background: #c0c0c0;
+  display: flex;
+  align-items: stretch;
+}
+
+.start-menu__header {
+  width: 24px;
+  background: linear-gradient(180deg, #000080 0%, #0a5bc4 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  flex-shrink: 0;
+}
+
+.start-menu__header p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.start-menu__brand-main {
+  color: #d5d5d5;
+}
+
+.start-menu__brand-sub {
+  color: #ffffff;
+}
+
+.start-menu__items {
+  flex: 1;
+  padding: 2px;
+  display: grid;
+  gap: 0;
+}
+
+.start-item-group {
+  position: relative;
+}
+
+.start-item {
+  min-height: 30px;
+  text-align: left;
+  background: #c0c0c0;
+  color: #000;
+  border: none;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.start-item__content {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.start-item__icon-wrap {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.start-item__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.start-item__fallback {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  line-height: 1;
+  font-weight: 700;
+  border: 1px solid #808080;
+  background: #e7e7e7;
+  color: #000;
+}
+
+.start-item__arrow {
+  font-size: 12px;
+  line-height: 1;
+  margin-left: 6px;
+}
+
+.start-menu__separator {
+  height: 2px;
+  margin: 1px 2px;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+}
+
+.start-item:hover,
+.start-item:focus-visible {
+  background: #000080;
+  color: #fff;
+  outline: none;
+}
+
+.start-item--submenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.start-item--active {
+  background: #000080;
+  color: #fff;
+}
+
+.tech-submenu {
+  position: absolute;
+  left: calc(100% - 1px);
+  top: -2px;
+  min-width: 184px;
+  background: #c0c0c0;
+  z-index: 60;
+}
+
+.tech-submenu ul {
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+
+.tech-submenu li {
+  min-height: 30px;
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.tech-submenu__item {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tech-submenu li:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.options-submenu {
+  position: absolute;
+  left: calc(100% - 1px);
+  top: -2px;
+  min-width: 184px;
+  background: #c0c0c0;
+  z-index: 60;
+}
+
+.options-submenu ul {
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+
+.options-submenu li {
+  min-height: 30px;
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.options-submenu__item {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.options-submenu li:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.win95-taskbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 45;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  background: #c0c0c0;
+}
+
+.start-button {
+  min-width: 64px;
+  font-weight: 700;
+}
+
+.start-button--active {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.taskbar-tabs {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-tab {
+  min-width: 120px;
+  max-width: 220px;
+  text-align: left;
+  font-size: 12px;
+  background: #c0c0c0;
+  border: none;
+}
+
+.taskbar-clock {
+  min-height: 26px;
+  min-width: 70px;
+  display: grid;
+  place-items: center;
+  background: #c0c0c0;
+  font-size: 12px;
+}
+
+/* This PC Page Styles (Windows 95 Welcome Style) */
+.win95-page--thispc {
+  padding: 0 !important;
+}
+
+.thispc-header {
+  background: #c0c0c0;
+  padding: 12px 16px;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.thispc-header h1 {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+  color: #000;
+}
+
+.windows-bold {
+  font-weight: 700;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.thispc-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr 160px;
+  gap: 0;
+  background: #c0c0c0;
+  min-height: 300px;
+}
+
+.thispc-left {
+  background: linear-gradient(135deg, #fffacd 0%, #ffffe0 100%);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-right: 2px solid #dfdfdf;
+}
+
+.thispc-tip-icon {
+  font-size: 40px;
+  text-align: center;
+}
+
+.thispc-tip-content h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.thispc-tip-content p {
+  font-size: 11px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.thispc-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #c0c0c0;
+}
+
+.monitor-frame {
+  position: relative;
+  width: 280px;
+  height: 240px;
+  background: #404040;
+  border: 4px solid #808080;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px #000, inset 0 0 0 2px #c0c0c0;
+}
+
+.monitor-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thispc-right {
+  background: #c0c0c0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+}
+
+.specs-card {
+  background: #c0c0c0;
+  border: 1px solid #dfdfdf;
+  padding: 6px 8px;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+}
+
+.specs-card h3 {
+  font-size: 11px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  color: #000;
+}
+
+.specs-card p {
+  font-size: 10px;
+  margin: 0;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .thispc-layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .thispc-left,
+  .thispc-right {
+    border: none;
+    border-bottom: 2px solid #dfdfdf;
+  }
+
+  .thispc-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .monitor-frame {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-main {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .win95-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specs-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .specs-image img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .tech-submenu {
+    left: 0;
+    top: calc(100% + 4px);
+    min-width: 100%;
+  }
+
+  .options-submenu {
+    left: 0;
+    top: calc(100% + 4px);
+    min-width: 100%;
+  }
+}
